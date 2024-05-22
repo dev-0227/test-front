@@ -1,4 +1,4 @@
 /node_modules
 /uploads
-api.js
+views/assets/js/api.js
 package-lock.json
