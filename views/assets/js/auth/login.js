@@ -1,32 +1,20 @@
 
-$(document).ready(function () {
+document.ready(function () {
   "use strict";
-  $('#email').keypress(function(e){
-    if (e.which === 13) {
-      $('#password').focus();
-    }
-  })
-
-  $('#password').keypress(function(e){
-    if (e.which === 13) {
-      $("#login").trigger("click");
-    }
-  })
-
-  $('#email').focus();
-  $("#login").click(function(){
+  document.getElementById("login").click(function(){
+    console.log("Click")
     let entry = {
       email: document.getElementById('email').value,
       password: document.getElementById('password').value
     }
     if(entry.email == ""){
       toastr.info('Please enter your email');
-      $("#email").focus();
+      document.getElementById('email').focus();
       return;
     }
     if(entry.password == ""){
       toastr.info('Please enter your password');
-      $("#password").focus();
+      document.getElementById('password').focus();
       return;
     }
     sendRequestWithToken('POST', localStorage.getItem('authToken'), entry, "login/login", (xhr, err) => {
@@ -54,18 +42,4 @@ $(document).ready(function () {
       }
     });
   });
-
-  $('#password-addon').click(function(){
-    if ($("#password").data("view")=="0") {
-      $("#password").attr("type", "text");
-      $("#password").data("view", "1");
-      $(".eye-icon").removeClass("ki-eye");
-      $(".eye-icon").addClass("ki-eye-slash");
-    }else{
-      $("#password").attr("type", "password");
-      $("#password").data("view", "0");
-      $(".eye-icon").addClass("ki-eye");
-      $(".eye-icon").removeClass("ki-eye-slash");
-    }
-  })
 });

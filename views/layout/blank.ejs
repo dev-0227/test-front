@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+  <head>
+	<meta charset="utf-8" />
+	<meta property="og:type" content="article" />
+	<meta property="og:title" content="ConectorHealth" />
+	<meta property="og:site_name" content="ConectorHealth" />
+	<title>Test</title>
+	<link rel="shortcut icon" href="/assets/media/logos/favicon.ico" />
+	<link href="/assets/plugins/global/plugins.bundle.css" rel="stylesheet" type="text/css" />
+	<link href="/assets/css/style.bundle.css" rel="stylesheet" type="text/css" />
+	<link href="/assets/css/custom.css" rel="stylesheet" type="text/css" />
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
+		<script src="/assets/js/api.js"></script>
+	</head>
+
+	<body>
+		<button onclick="btnClick()" id="login" class="btn btn-lg btn-primary w-100 mb-5"></button>
+
+		<script>
+			function btnClick() {
+				// console.log("OK");
+				let data = [];
+				sendRequestWithToken("POST", null, [], 'login/login', (req, res) => {
+					console.log(res);
+				})
+			}
+		</script>
+	</body>
+</html>
