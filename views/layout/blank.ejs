@@ -26,7 +26,7 @@
 					name: "KKKK",
 					password: "OOOO"
 				};
-				sendRequestWithToken("POST", null, data, 'api/login', (response, error) => {
+				sendRequestWithToken("POST", null, data, 'login/login', (response, error) => {
 					let result = JSON.parse(response.responseText);
 					console.log(result)
 				})
