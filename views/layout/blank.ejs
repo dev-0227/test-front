@@ -15,17 +15,20 @@
 	</head>
 
 	<body>
-		<button onclick="btnClick()" id="login" class="btn btn-lg btn-primary w-100 mb-5"></button>
+		<button onclick="btnClick()"  class="w-50 mt-5">
+			Login
+		</button>
 
 		<script>
 			function btnClick() {
 				// console.log("OK");
-				let data = [{
+				let data = {
 					name: "KKKK",
 					password: "OOOO"
-				}];
-				sendRequestWithToken("POST", null, data, 'login/login', (req, res) => {
-					console.log(res);
+				};
+				sendRequestWithToken("POST", null, data, 'api/login', (response, error) => {
+					let result = JSON.parse(response.responseText);
+					console.log(result)
 				})
 			}
 		</script>
